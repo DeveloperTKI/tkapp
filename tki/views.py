@@ -59,6 +59,8 @@ class RegistrationView(APIView):
 
 
 
+
+
 # Post data:
     def post(self, request):
         
