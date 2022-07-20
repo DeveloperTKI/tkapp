@@ -69,8 +69,8 @@ class ProjectDetail(models.Model):
     def __str__(self):
         return str(self.user.username + " --"+self.project_id)
     
-    def remaining_amount(self):
-        return (self.total_project_value)-(self.booking_amount)
+    # def remaining_amount(self):
+    #     return (self.total_project_value)-(self.booking_amount)
     
     # class Meta:
     #     verbose_name_plural='total_project_value'
@@ -115,12 +115,13 @@ class PaymentInstallment(models.Model):
     project_detail=models.ForeignKey(ProjectDetail,related_name='pd',on_delete=models.CASCADE)
     total_project_value=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
     booking_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
-    total_paid = models.DecimalField(max_digits=10, null=True ,blank=True,decimal_places=2,help_text="Enter Total Paid Amount (in ₹)")
-    remaining_amountt=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
+    total_paid = models.DecimalField(max_digits=10,decimal_places=2,null=True ,blank=True,help_text="Enter Total Paid Amount (in ₹)")
+    remaining_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
     enter_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
-
-    def remaining_amountt(self):
-        return self.total_project_value-self.booking_amount-self.total_paid-self.enter_amount
+    
+    
+    # def remaining_amount(self):
+    #     return self.total_project_value-self.booking_amount-self.total_paid-self.enter_amount
 
     # def total_amount_due(self):
     #     return self.total_project_value-self.total_paid
