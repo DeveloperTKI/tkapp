@@ -26,15 +26,13 @@ class Registration(AbstractUser):
     gender=models.CharField(max_length=6,null=True,blank=True)
     image=models.ImageField(upload_to='image',null=True,blank=True)
     id=models.CharField(max_length=10, default=customer_generate_id,primary_key=True,editable=False)
-    mobile_no=models.CharField(max_length=13)
+    mobile_no=models.CharField(max_length=13,null=True,blank=True)
     otp=models.IntegerField(default=0)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return str(self.username +"--"+ self.id)
-
-    
 
     class Meta:
         verbose_name_plural='user'
@@ -116,12 +114,14 @@ class PaymentInstallment(models.Model):
     total_project_value=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
     booking_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
     total_paid = models.DecimalField(max_digits=10,decimal_places=2,null=True ,blank=True,help_text="Enter Total Paid Amount (in ₹)")
-    remaining_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
+    remaining_amount=models.DecimalField(max_digits=12,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
     enter_amount=models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True,help_text="Enter remaing amount")
+    
     
     
     # def remaining_amount(self):
     #     return self.total_project_value-self.booking_amount-self.total_paid-self.enter_amount
+
 
     # def total_amount_due(self):
     #     return self.total_project_value-self.total_paid
