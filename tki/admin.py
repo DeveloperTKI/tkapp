@@ -30,7 +30,7 @@ admin.site.register(Registration,RegistrationAdmin)
 
 @admin.register(PaymentInstallment)
 class PaymentInstallmentAdmin(admin.ModelAdmin):
-    list_display=('project_id','project_detail','total_project_value','booking_amount','total_paid','remaining_amount','enter_amount')
+    list_display=('project_id','project_detail','total_project_value','booking_amount','total_paid','remaining_amountt','enter_amount')
     fields=('project_id','project_detail','total_project_value','booking_amount','total_paid','enter_amount')
 
 

@@ -48,7 +48,7 @@ class LoginSerializer(serializers.Serializer):
 class PaymentInstallmentSerializer(serializers.ModelSerializer):
     class Meta:
         model=PaymentInstallment
-        fields=['project_id','project_detail','total_project_value','booking_amount','total_paid','remaining_amount','enter_amount']
+        fields=['project_id','project_detail','total_project_value','booking_amount','total_paid','remaining_amountt','enter_amount']
 
 
 
