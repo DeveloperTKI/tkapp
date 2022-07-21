@@ -36,8 +36,8 @@ class PaymentInstallmentAdmin(admin.ModelAdmin):
 
 @admin.register(ProjectDetail)
 class ProjectDetailAdmin(admin.ModelAdmin):
-    list_display=('user','project_detail')
-    fields=('user','project_detail')
+    list_display=('user','project_detail','project_booking_date')
+    fields=('user','project_detail','project_booking_date')
     
 
 
